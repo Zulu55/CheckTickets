@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="CheckTickets.Views.CheckTicketsPage"
+    Title="Check Tickets"
+    BackgroundImage="back.jpg"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+	<ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding CheckTickets}">
+            <StackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Silver"
+                Padding="20">
+                <Label
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Text="Ticket Code:">
+                </Label>
+                <Entry
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Enter ticket code..."
+                    FontSize="Large"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Text="{Binding TicketCode, Mode=TwoWay}">
+                </Entry>
+                <Label
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    TextColor="{Binding ColorMessage, Mode=TwoWay}"
+                    Text="{Binding Message, Mode=TwoWay}">
+                </Label>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Button
+                    Command="{Binding CheckTicketCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    BorderRadius="20"
+                    HeightRequest="40"
+                    TextColor="White"
+                    BackgroundColor="Navy"
+                    Text="Check">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>
